@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import Body from "./Components/Body";
+import Navbar from "./Components/Navbar";
+import { useSelector } from "react-redux";
 
 function App() {
+  const myadd = useSelector((state) => state.main);
+  // console.log(myadd.myarray);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <Navbar />
+      <div class="container">
+        <div class="row">
+          {myadd.myarray.map((items) => {
+            const { id, Title, Description, Url, Image } = items;
+            return (
+              <Body
+                id={id}
+                Title={Title}
+                Description={Description}
+                Url={Url}
+                Image={Image}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </React.Fragment>
   );
 }
 
