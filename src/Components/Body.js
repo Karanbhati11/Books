@@ -55,6 +55,7 @@ function Body(props) {
               textAlign: "center",
               height: "80px",
               overflow: "hidden",
+              textTransform: "capitalize",
             }}
           >
             {Title}
