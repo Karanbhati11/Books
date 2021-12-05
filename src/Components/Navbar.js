@@ -43,6 +43,7 @@ function Navbar() {
                 backgroundColor: "rgb(33,37,41)",
                 color: "white",
                 textAlign: "center",
+                transition: "0.5s",
               }}
             >
               <h4

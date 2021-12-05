@@ -19,7 +19,7 @@ function App() {
       // console.log("UN");
     } else {
       setIsfiltred(true);
-      console.log("FILTERED");
+      // console.log("FILTERED");
       setSearchFilterArray(
         myadd.myarray.filter((val) =>
           val.Title.toLowerCase().includes(selector.searchparam1.toLowerCase())
@@ -32,7 +32,16 @@ function App() {
     <React.Fragment>
       <Navbar />
       <div className="container">
-        <div className="row">
+        <div
+          className="row"
+          style={{
+            alignItems: "center",
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+          }}
+        >
           {!isFiltered &&
             myadd.myarray.map((items) => {
               const { id, Title, Description, Url, Image, File } = items;

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-
+import "../index";
 // import Body from "./Body";
 import MainArray from "./Storage/MainArray";
 import { useDispatch } from "react-redux";
@@ -32,11 +32,9 @@ export function InputComponent() {
   const SubmitHandler = () => {
     if (Input_Title === "") {
       alert("Title Required");
-    }
-    // else if (file1 === "") {
-    //   alert("URL Required");
-    // }
-    else {
+    } else if (Input_URL === "") {
+      alert("URL Required");
+    } else {
       setInputDescripton("");
       setInputImage("");
       setInputTitle("");

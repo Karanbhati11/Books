@@ -39,14 +39,18 @@ function Body(props) {
     <React.Fragment>
       <div
         className="card"
-        style={{ width: "18rem", margin: "20px", padding: "0.1px" }}
+        style={{
+          width: "18rem",
+          margin: "20px",
+          border: "1px solid black",
+        }}
         key={id}
       >
         <img
           src={Image}
           className="card-img-top"
           alt="ImageUrl"
-          style={{ width: "18rem", height: "350px" }}
+          style={{ width: "18rem", height: "350px", alignSelf: "center" }}
         />
         <div className="card-body" style={{ height: "200px" }}>
           <h5
@@ -72,10 +76,10 @@ function Body(props) {
             rel="noopener noreferrer"
             className="btn btn-primary"
             style={{ marginLeft: "40px" }}
-            onClick={(e) => {
-              // e.preventDefault();
-              // READER(File);
-            }}
+            // onClick={(e) => {
+            //   // e.preventDefault();
+            //   // READER(File);
+            // }}
           >
             Read
           </a>
