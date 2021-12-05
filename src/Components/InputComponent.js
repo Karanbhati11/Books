@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+
 // import Body from "./Body";
 import MainArray from "./Storage/MainArray";
 import { useDispatch } from "react-redux";
@@ -16,24 +17,26 @@ export function InputComponent() {
   // console.log(a);
   const a = JSON.parse(localStorage.getItem("KEY"));
   const [Array1, setArray] = useState(a !== null || a === [] ? a : MainArray);
-  const [file, setFile] = useState("");
-  const FileHandler = (e) => {
-    const file = e.target.files[0];
-
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      setFile(reader.result);
-    };
-  };
-  // console.log(file);
+  // const [file1, setFile] = useState("");
+  // const FileHandler = (e) => {
+  //   const file = e.target.files[0];
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = () => {
+  //     setFile(reader.result);
+  //     // console.log(reader.result);
+  //   };
+  // };
+  // console.log(file1);
 
   const SubmitHandler = () => {
     if (Input_Title === "") {
       alert("Title Required");
-    } else if (Input_URL === "") {
-      alert("URL Required");
-    } else {
+    }
+    // else if (file1 === "") {
+    //   alert("URL Required");
+    // }
+    else {
       setInputDescripton("");
       setInputImage("");
       setInputTitle("");
@@ -44,6 +47,7 @@ export function InputComponent() {
         Image: Input_Image,
         Description: Input_Description,
         Url: Input_URL,
+        // File: file1,
       };
       setArray([...Array1, NewArray]);
     }
@@ -55,13 +59,13 @@ export function InputComponent() {
   }, [Array1]);
   return (
     <React.Fragment>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">
+      <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1">
           Title
         </span>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Name"
           aria-describedby="basic-addon1"
           value={Input_Title}
@@ -70,13 +74,13 @@ export function InputComponent() {
           }}
         />
       </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">
+      <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1">
           URL
         </span>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="URL"
           aria-describedby="basic-addon1"
           value={Input_URL}
@@ -84,26 +88,24 @@ export function InputComponent() {
             setInputURL(e.target.value);
           }}
         />
-      </div>
-      {/* <div class="input-group mb-3">
-        <input
+        {/* <h4 style={{ marginLeft: "5px", marginRight: "5px" }}>Or</h4> */}
+        {/* <input
           type="file"
-          class="form-control"
+          className="form-control"
           placeholder="URL"
           aria-describedby="basic-addon1"
-          value={Input_URL}
           onChange={(e) => {
             FileHandler(e);
           }}
-        />
-      </div> */}
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">
+        /> */}
+      </div>
+      <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1">
           Author
         </span>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Enter  Author Name"
           aria-describedby="basic-addon1"
           value={Input_Description}
@@ -112,13 +114,13 @@ export function InputComponent() {
           }}
         />
       </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">
+      <div className="input-group mb-3">
+        <span className="input-group-text" id="basic-addon1">
           Image Url
         </span>
         <input
           type="text"
-          class="form-control"
+          className="form-control"
           placeholder="Image url if any ...."
           aria-describedby="basic-addon1"
           value={Input_Image}
@@ -131,7 +133,7 @@ export function InputComponent() {
       <button
         style={{ alignSelf: "center" }}
         type="button"
-        class="btn btn-dark"
+        className="btn btn-light"
         onClick={() => SubmitHandler()}
       >
         Submit

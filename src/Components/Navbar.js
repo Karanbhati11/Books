@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useDispatch } from "react-redux";
+import { search_books } from "../Actions/action";
 import { InputComponent } from "./InputComponent";
+import "../index.css";
 function Navbar() {
+  const dispatch = useDispatch();
   return (
     <React.Fragment>
       <nav className="navbar navbar-dark bg-dark">
@@ -13,22 +17,23 @@ function Navbar() {
               type="search"
               placeholder="Search"
               aria-label="Search"
+              // value={input}
+              onChange={(e) => {
+                dispatch(search_books(e.target.value));
+              }}
             />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
           </form>
         </div>
       </nav>
       <div
-        class="accordion accordion-flush"
+        className="accordion accordion-flush"
         style={{ textAlign: "center" }}
         id="accordionFlushExample"
       >
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="flush-headingOne">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="flush-headingOne">
             <button
-              class="accordion-button collapsed "
+              className="accordion-button collapsed "
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne"
@@ -40,16 +45,24 @@ function Navbar() {
                 textAlign: "center",
               }}
             >
-              <h4 style={{ textAlign: "center" }}>Click here Add Your Books</h4>
+              <h4
+                className="ADD_BOOKS"
+                style={{ textAlign: "center", alignItems: "center" }}
+              >
+                Click Here Add Your Books
+              </h4>
             </button>
           </h2>
           <div
             id="flush-collapseOne"
-            class="accordion-collapse collapse"
+            className="accordion-collapse collapse"
             aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample"
           >
-            <div class="accordion-body" style={{ textAlign: "ce" }}>
+            <div
+              className="accordion-body"
+              style={{ textAlign: "center", backgroundColor: "black" }}
+            >
               <InputComponent />
             </div>
           </div>

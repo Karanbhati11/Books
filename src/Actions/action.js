@@ -10,3 +10,9 @@ export const del_books = (output) => {
     payload: output,
   };
 };
+export const search_books = (searchparam) => {
+  return {
+    type: "SEARCH",
+    payload: searchparam,
+  };
+};
